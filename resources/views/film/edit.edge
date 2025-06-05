@@ -1,0 +1,49 @@
+@layout('layout.main')
+
+@section('content')
+  <h2>Edit Film</h2>
+  
+  <form action="/film/{{ film.id }}?_method=PUT" method="POST">
+    {{ csrfField() }}
+    
+    <div class="mb-3">
+      <label for="judul" class="form-label">Judul</label>
+      <input type="text" class="form-control" id="judul" name="judul" value="{{ film.judul }}" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="sutradara" class="form-label">Sutradara</label>
+      <input type="text" class="form-control" id="sutradara" name="sutradara" value="{{ film.sutradara }}" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="produser" class="form-label">Produser</label>
+      <input type="text" class="form-control" id="produser" name="produser" value="{{ film.produser }}" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="tahun_rilis" class="form-label">Tahun Rilis</label>
+      <input type="number" class="form-control" id="tahun_rilis" name="tahun_rilis" value="{{ film.tahun_rilis }}" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="genre" class="form-label">Genre</label>
+      <input type="text" class="form-control" id="genre" name="genre" value="{{ film.genre }}">
+    </div>
+    
+    <div class="mb-3">
+      <label for="durasi" class="form-label">Durasi (menit)</label>
+      <input type="number" class="form-control" id="durasi" name="durasi" value="{{ film.durasi }}">
+    </div>
+    
+    <div class="mb-3">
+      <label for="sinopsis" class="form-label">Sinopsis</label>
+      <textarea class="form-control" id="sinopsis" name="sinopsis" rows="4">{{ film.sinopsis }}</textarea>
+    </div>
+    
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Update</button>
+      <a href="/film" class="btn btn-secondary">Batal</a>
+    </div>
+  </form>
+@endsection
